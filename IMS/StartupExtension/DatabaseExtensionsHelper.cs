@@ -12,7 +12,7 @@ namespace IMS.StartupExtension
             services.AddDbContext<ApplicationDbContext>(Opt =>
             {
 
-                Opt.UseSqlServer(configuration.GetConnectionString(name: "DefaultConnection"));
+                Opt.UseSqlServer(configuration.GetConnectionString(name: "DefaultConnection"), sqlServerOptionsAction => sqlServerOptionsAction.EnableRetryOnFailure());
 
             });
 
